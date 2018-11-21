@@ -2,8 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Time-line</title>
-    <link rel="stylesheet" href="css/styleOfTime-line.css">
+    <title>Line</title>
+    <link rel="stylesheet" href="css/styleOfLine.css">
 
     <!--引用vuejs-->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
@@ -37,427 +37,50 @@
 
 <body>
     <!--顶栏-->
-	<div class = "container-fluid">
-		<div class = "row" id = "header">	
-			<div class = "col-md-12 row e">
-				1
-			</div>
-			<span class = "col-md-1 col-md-offset-1"  id = "LOGO"><b>LOGO</b></span>
-			<span class = "option col-md-1" id = "Map"><a href = "Map.html">地图功能</a></span>
-			<span class = "option col-md-1" id = "Line"><a href = "Line.html">轨迹功能</a></span>
-			<span class = "option col-md-1" id = "Time-line"><a href = "Time-line.html">时间清单</a></span>
-			<div class = "col-md-offset-5 col-md-1" id = "log-button">Welcome, 小王</div>
-			<div class = "col-md-12 row e">
-				1
-			</div>
-		</div>
-	</div>
+    <div class = "container-fluid">
+        <div class = "row" id = "header">   
+            <span class = "col-md-1" style = "padding: 0;"><img src = "pic/picOfMap/blue square.png" id = "square"></span>
+            <span class = "option col-md-5" id = "Map"><p id = "fir" style = "display: inline-block;margin: 0;">Good morning  Mr.Wang!</h1><p id = "sec">what's your feeling?</p></span>
+        </div>
+    </div>
+
+    <!--左边菜单栏-->
+    <div style = "position: absolute;" id = "menu">
+        <center><a href = "Map.html"><img class = "item" src = "pic/picOfMap/home.png" id = "home"></a></center>
+        <center><a href = "Line.html"><img class = "item" src = "pic/picOfMap/Line.png" id = "Line"></a></center>
+        <center><a href = "Time-line.html"><img class = "item" src = "pic/picOfMap/light.png" id = "light"></a></center>
+
+        <!--该函数为根据页面变换菜单图标的函数-->
+        <script type="text/javascript">
+            window.onload = function change1() {
+                if(document.title === "Line") {
+                    document.getElementById("Line").src = "pic/picOfMap/Line-v.png";
+                    document.getElementById("home").src = "pic/picOfMap/home.png";
+                    document.getElementById("light").src = "pic/picOfMap/light.png";
+                }
+                if(document.title === "Map") {
+                    document.getElementById("Line").src = "pic/picOfMap/Line.png";
+                    document.getElementById("home").src = "pic/picOfMap/home-v.png";
+                    document.getElementById("light").src = "pic/picOfMap/light.png";
+                }
+                if(document.title === "Time-line") {
+                    document.getElementById("Line").src = "pic/picOfMap/Line.png";
+                    document.getElementById("home").src = "pic/picOfMap/home.png";
+                    document.getElementById("light").src = "pic/picOfMap/light-v.png";
+                }
+            }
+            
+        </script>
+
+    </div>
 
     <!--地图-->
-	<center>
-	<div id = "background">
-		<div id="container"></div> 
-		<script type="text/javascript"> 
-			var map = new BMap.Map("container");
-			var point = new BMap.Point(114.365796,30.534921);
-			map.centerAndZoom(point, 18);
-			map.enableScrollWheelZoom(true);
-
-			/************************************
-
-			以下为点击图中位置，获取经纬度的函数
-
-			*************************************/
-			var geoc = new BMap.Geocoder(); 
-			map.addEventListener("click", function(e){   
-        	//通过点击百度地图，可以获取到对应的point, 由point的lng、lat属性就可以获取对应的经度纬度     
-        	var pot = e.point;
-        	geoc.getLocation(pot, function(rs){
-            //addressComponents对象可以获取到详细的地址信息
-            var addComp = rs.addressComponents;
-            console.log(pot.lng); //经度
-            console.log(pot.lat); //纬度
-        		});        
-    		});
-
-
-			map.setMapStyle({styleJson: myStyleJson });
-
-    		/**************************
-
-    		地图样式的style数据
-
-    		****************************/
-    var myStyleJson = [{
-    "featureType": "land",
-    "elementType": "geometry",
-    "stylers": {
-        "visibility": "on",
-        "color": "#f5f5f5cf"
-    }
-}, {
-    "featureType": "water",
-    "elementType": "geometry",
-    "stylers": {
-        "visibility": "on",
-        "color": "#bedbf9ff"
-    }
-}, {
-    "featureType": "green",
-    "elementType": "geometry",
-    "stylers": {
-        "visibility": "on",
-        "color": "#d0edccff"
-    }
-}, {
-    "featureType": "building",
-    "elementType": "geometry",
-    "stylers": {
-        "visibility": "on"
-    }
-}, {
-    "featureType": "building",
-    "elementType": "geometry.fill",
-    "stylers": {
-        "color": "#b8daee4a"
-    }
-}, {
-    "featureType": "building",
-    "elementType": "geometry.stroke",
-    "stylers": {
-        "color": "#dadadab3"
-    }
-}, {
-    "featureType": "subwaystation",
-    "elementType": "geometry",
-    "stylers": {
-        "visibility": "off",
-        "color": "#b15454B2"
-    }
-}, {
-    "featureType": "education",
-    "elementType": "geometry",
-    "stylers": {
-        "visibility": "on",
-        "color": "#e4f1f1ff"
-    }
-}, {
-    "featureType": "medical",
-    "elementType": "geometry",
-    "stylers": {
-        "visibility": "on",
-        "color": "#f0dedeff"
-    }
-}, {
-    "featureType": "scenicspots",
-    "elementType": "geometry",
-    "stylers": {
-        "visibility": "on",
-        "color": "#e2efe5ff"
-    }
-}, {
-    "featureType": "highway",
-    "elementType": "geometry",
-    "stylers": {
-        "visibility": "on",
-        "weight": 4
-    }
-}, {
-    "featureType": "highway",
-    "elementType": "geometry.fill",
-    "stylers": {
-        "color": "#f7c54dff"
-    }
-}, {
-    "featureType": "highway",
-    "elementType": "geometry.stroke",
-    "stylers": {
-        "color": "#fed669ff"
-    }
-}, {
-    "featureType": "highway",
-    "elementType": "labels",
-    "stylers": {
-        "visibility": "on"
-    }
-}, {
-    "featureType": "highway",
-    "elementType": "labels.text.fill",
-    "stylers": {
-        "color": "#8f5a33ff"
-    }
-}, {
-    "featureType": "highway",
-    "elementType": "labels.text.stroke",
-    "stylers": {
-        "color": "#ffffffff"
-    }
-}, {
-    "featureType": "highway",
-    "elementType": "labels.icon",
-    "stylers": {
-        "visibility": "on"
-    }
-}, {
-    "featureType": "arterial",
-    "elementType": "geometry",
-    "stylers": {
-        "visibility": "on",
-        "weight": 2
-    }
-}, {
-    "featureType": "arterial",
-    "elementType": "geometry.fill",
-    "stylers": {
-        "color": "#d8d8d8ff"
-    }
-}, {
-    "featureType": "arterial",
-    "elementType": "geometry.stroke",
-    "stylers": {
-        "color": "#ffeebbff"
-    }
-}, {
-    "featureType": "arterial",
-    "elementType": "labels",
-    "stylers": {
-        "visibility": "on"
-    }
-}, {
-    "featureType": "arterial",
-    "elementType": "labels.text.fill",
-    "stylers": {
-        "color": "#525355ff"
-    }
-}, {
-    "featureType": "arterial",
-    "elementType": "labels.text.stroke",
-    "stylers": {
-        "color": "#ffffffff"
-    }
-}, {
-    "featureType": "local",
-    "elementType": "geometry",
-    "stylers": {
-        "visibility": "on",
-        "weight": 1
-    }
-}, {
-    "featureType": "local",
-    "elementType": "geometry.fill",
-    "stylers": {
-        "color": "#d8d8d8ff"
-    }
-}, {
-    "featureType": "local",
-    "elementType": "geometry.stroke",
-    "stylers": {
-        "color": "#ffffffff"
-    }
-}, {
-    "featureType": "local",
-    "elementType": "labels",
-    "stylers": {
-        "visibility": "on"
-    }
-}, {
-    "featureType": "local",
-    "elementType": "labels.text.fill",
-    "stylers": {
-        "color": "#979c9aff"
-    }
-}, {
-    "featureType": "local",
-    "elementType": "labels.text.stroke",
-    "stylers": {
-        "color": "#ffffffff"
-    }
-}, {
-    "featureType": "railway",
-    "elementType": "geometry",
-    "stylers": {
-        "visibility": "on",
-        "weight": 1
-    }
-}, {
-    "featureType": "railway",
-    "elementType": "geometry.fill",
-    "stylers": {
-        "color": "#949494ff"
-    }
-}, {
-    "featureType": "railway",
-    "elementType": "geometry.stroke",
-    "stylers": {
-        "color": "#ffffffff"
-    }
-}, {
-    "featureType": "subway",
-    "elementType": "geometry",
-    "stylers": {
-        "visibility": "on",
-        "weight": 1
-    }
-}, {
-    "featureType": "subway",
-    "elementType": "geometry.fill",
-    "stylers": {
-        "color": "#d8d8d8ff"
-    }
-}, {
-    "featureType": "subway",
-    "elementType": "geometry.stroke",
-    "stylers": {
-        "color": "#ffffffff"
-    }
-}, {
-    "featureType": "subway",
-    "elementType": "labels",
-    "stylers": {
-        "visibility": "on"
-    }
-}, {
-    "featureType": "subway",
-    "elementType": "labels.text.fill",
-    "stylers": {
-        "color": "#979c9aff"
-    }
-}, {
-    "featureType": "subway",
-    "elementType": "labels.text.stroke",
-    "stylers": {
-        "color": "#ffffffff"
-    }
-}, {
-    "featureType": "continent",
-    "elementType": "labels",
-    "stylers": {
-        "visibility": "on"
-    }
-}, {
-    "featureType": "continent",
-    "elementType": "labels.icon",
-    "stylers": {
-        "visibility": "on"
-    }
-}, {
-    "featureType": "continent",
-    "elementType": "labels.text.fill",
-    "stylers": {
-        "color": "#333333ff"
-    }
-}, {
-    "featureType": "continent",
-    "elementType": "labels.text.stroke",
-    "stylers": {
-        "color": "#ffffffff"
-    }
-}, {
-    "featureType": "city",
-    "elementType": "labels.icon",
-    "stylers": {
-        "visibility": "on"
-    }
-}, {
-    "featureType": "city",
-    "elementType": "labels",
-    "stylers": {
-        "visibility": "on"
-    }
-}, {
-    "featureType": "city",
-    "elementType": "labels.text.fill",
-    "stylers": {
-        "color": "#454d50ff"
-    }
-}, {
-    "featureType": "city",
-    "elementType": "labels.text.stroke",
-    "stylers": {
-        "color": "#ffffffff"
-    }
-}, {
-    "featureType": "town",
-    "elementType": "labels.icon",
-    "stylers": {
-        "visibility": "on"
-    }
-}, {
-    "featureType": "town",
-    "elementType": "labels",
-    "stylers": {
-        "visibility": "on"
-    }
-}, {
-    "featureType": "town",
-    "elementType": "labels.text.fill",
-    "stylers": {
-        "color": "#454d50ff"
-    }
-}, {
-    "featureType": "town",
-    "elementType": "labels.text.stroke",
-    "stylers": {
-        "color": "#ffffffff"
-    }
-}, {
-    "featureType": "poilabel",
-    "elementType": "labels.icon",
-    "stylers": {
-        "visibility": "off"
-    }
-}, {
-    "featureType": "poilabel",
-    "elementType": "labels",
-    "stylers": {
-        "visibility": "off"
-    }
-}, {
-    "featureType": "background",
-    "elementType": "geometry",
-    "stylers": {
-        "visibility": "on"
-    }
-}, {
-    "featureType": "entertainment",
-    "elementType": "geometry",
-    "stylers": {
-        "visibility": "on"
-    }
-}, {
-    "featureType": "estate",
-    "elementType": "geometry",
-    "stylers": {
-        "visibility": "off"
-    }
-}, {
-    "featureType": "shopping",
-    "elementType": "geometry",
-    "stylers": {
-        "visibility": "off"
-    }
-}, {
-    "featureType": "road",
-    "elementType": "geometry.fill",
-    "stylers": {
-        "color": "#ffffffc7"
-    }
-}, {
-    "featureType": "road",
-    "elementType": "geometry.stroke",
-    "stylers": {
-        "color": "#ffffff36"
-    }
-}, {
-    "featureType": "transportation",
-    "elementType": "geometry",
-    "stylers": {
-        "visibility": "off"
-    }
-}]
-		</script>
-	</div>
-	</center>
+    <div>
+        <div class = "img-responsive" style = "position: absolute;">
+            <img src = "pic/picOfMap/Map.png" id = "background">
+        </div> 
+    
+<div>
 
     <!--报告浮动窗口-->
 	<center>
