@@ -8,17 +8,6 @@
     <!--引用vuejs-->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
 
-
-    <!--调用百度地图API-->
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=GZrr0Ivg1ZdHB5kxvjyyfYGGDzhnogEF"></script>
-    <style type="text/css">  
-    html{height:100%}    
-    body{height:100%;margin:0px;padding:0px}    
-    #container{height:100%}    
-    </style> 
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <!--调用结束-->  
-
     <!--Jquery-->
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
@@ -40,7 +29,7 @@
     <div class = "container-fluid">
         <div class = "row" id = "header">   
             <span class = "col-md-1" style = "padding: 0;"><img src = "pic/picOfMap/blue square.png" id = "square"></span>
-            <span class = "option col-md-5" id = "Map"><p id = "fir" style = "display: inline-block;margin: 0;">Good morning  Mr.Wang!</h1><p id = "sec">what's your feeling?</p></span>
+            <span class = "option col-md-5" id = "Map"><p id = "fir" style = "display: inline-block;margin: 0;">Good morning  Mr.Wang!</h1><p id = "se">what's your feeling?</p></span>
         </div>
     </div>
 
@@ -77,7 +66,23 @@
     <div>
         <div class = "img-responsive" style = "position: absolute;">
             <img src = "pic/picOfMap/Map.png" id = "background">
-            <img src = "pic/icon/qinglou.png" class = "icon" id = "qinglou" data-toggle="modal" data-target="#myModal">
+
+            <!--所有浮动图标-->
+            <img src = "pic/icon/firs.png" class = "icon" id = "一食堂" data-toggle="modal" data-target="#myModal"  name = "1" onclick="getplace(this.id)">
+            <img src = "pic/icon/sec.png" class = "icon" id = "二食堂" data-toggle="modal" data-target="#myModal" name = "2" onclick="getplace(this.id)">
+            <img src = "pic/icon/xin-playground.png" class = "icon" id = "信操" data-toggle="modal" data-target="#myModal" name = "4" onclick="getplace(this.id)">
+            <img src = "pic/icon/basketball.png" class = "icon" id = "信部篮球场" data-toggle="modal" data-target="#myModal" name = "5" onclick="getplace(this.id)">
+            
+            <img src = "pic/icon/xin-playground.png" class = "icon" id = "网安操场" data-toggle="modal" data-target="#myModal" name = "6" onclick="getplace(this.id);">
+            <img src = "pic/icon/wangan.png" class = "icon" id = "网安教学楼" data-toggle="modal" data-target="#myModal" name = "7" onclick="getplace(this.id);">
+            <img src = "pic/icon/qinglou.png" class = "icon" id = "青楼" data-toggle="modal" data-target="#myModal" name = "8" onclick="getplace(this.id)">
+            
+            <img src = "pic/icon/deren.png" class = "icon" id = "德仁" data-toggle="modal" data-target="#myModal" name = "9" onclick="getplace(this.id);">
+            <img src = "pic/icon/xinghuyuan.png" class = "icon" id = "星湖园" data-toggle="modal" data-target="#myModal" name = "10" onclick="getplace(this.id);">
+            <img src = "pic/icon/library.png" class = "icon" id = "图书馆" data-toggle="modal" data-target="#myModal" name = "11" onclick="getplace(this.id);">
+            <img src = "pic/icon/lake.png" class = "icon" id = "星湖"  data-toggle="modal" data-target="#myModal" name = "12" onclick="getplace(this.id);">
+            <img src = "pic/icon/youyi.png" class = "icon" id = "友谊广场" data-toggle="modal" data-target="#myModal" name = "13" onclick="getplace(this.id);">
+            <img src = "pic/icon/pool.png" class = "icon" id = "游泳池" data-toggle="modal" data-target="#myModal" name = "15" onclick="getplace(this.id);">
         </div>     
     </div>
 
@@ -88,6 +93,20 @@
                 <div class = "modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">添加我的珞珈记录</h4>
+                    <div id = "place">
+                        <p>你选择了 {{ a }} </p>
+                    </div>
+                    <script type="text/javascript">
+                        function getplace(name) {
+                            var data = {a:1};
+                            data.a = name;
+                            var place = new Vue({
+                            el: '#place',
+                            data: data
+                            })
+                        }
+                        /////???????????????????????????????????????????
+                    </script>
                 </div>
 
 
@@ -96,11 +115,16 @@
                         <div class = "form-group">
                             <label class = "control-label">事件</label>
                             <select class = "selectpicker show-tick form-control">
-                                <option value = "1">上喜欢的课</option>
-                                <option>上不喜欢的课</option>
-                                <option>上课玩手机</option>
-                                <option>听讲座</option>
-                                <option>开会</option>
+                                <option value = "1"></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                <option></option>
                                 <option></option>
                                 <option></option>
                             </select>

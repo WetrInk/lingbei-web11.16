@@ -3,21 +3,10 @@
 <head>
     <meta charset="utf-8">
     <title>Time-line</title>
-    <link rel="stylesheet" href="css/styleOfTest.css">
+    <link rel="stylesheet" href="css/styleOfTime-Line.css">
 
     <!--引用vuejs-->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
-
-
-    <!--调用百度地图API-->
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=GZrr0Ivg1ZdHB5kxvjyyfYGGDzhnogEF"></script>
-    <style type="text/css">  
-    html{height:100%}    
-    body{height:100%;margin:0px;padding:0px}    
-    #container{height:100%}    
-    </style> 
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <!--调用结束-->  
 
     <!--Jquery-->
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
@@ -98,12 +87,35 @@
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         			<h4 class="modal-title">这是你的Timeline</h4>
+                    <p id ="data" ></p>
+                    <script type="text/javascript">
+                        var myDate = new Date();
+                        var day = myDate.getDate();
+                        var month = myDate.getMonth();
+                        $("#data").html(month + "." + day);
+                    </script>
 				</div>
 
 				<div class="modal-body">
 
-					<button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span></button>
-					<button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></button>
+					<button type="button" class="btn btn-default" aria-label="Left Align" id = "left" onclick="changeData(this.id)"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span></button>
+					<button type="button" class="btn btn-default" aria-label="Left Align" id = "right" onclick = "changeData(this.id)"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></button>
+                    <script type="text/javascript">
+                        function changeData(arrow) {
+                            if(arrow === "left") {
+                                day = day - 1;
+                                if(day === 0) {
+                                    month = month - 1;
+                                    day = 31
+                                }
+                                $("#data").html(month + "." + day);
+                            }
+                            if(arrow === "right") {
+                                day = day + 1;
+                                $("#data").html(month + "." + day);
+                            }
+                        }
+                    </script>
 
 					<ul class="list-group">
 	  					<li class="list-group-item"><h4>7:00-9:00</h4><p class = "placeSty" id = "place"></p><p class = "thingSty" id = "thing"></p></li>
