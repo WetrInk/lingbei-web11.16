@@ -1,3 +1,7 @@
+body {
+	font-family: Raleway;
+}
+
 /*顶栏CSS样式*/
 #square {
 	height: 10%;
@@ -42,6 +46,7 @@ a {
 	height: 100%;
 	background-color: rgba(244,243,241,0.5);
 	z-index: 1;
+	display: none;
 }
 
 .item {
@@ -169,6 +174,7 @@ center:hover {
 	background-color: white;
 	padding-top: 3%;
 	padding-bottom: 3%;
+	opacity: 0.5;
 }
 
 .placeSty {

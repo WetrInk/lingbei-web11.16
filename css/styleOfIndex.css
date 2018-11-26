@@ -9,7 +9,7 @@ body {
     height:100%;
 }
 
-
+/*以下为动画实现*/
 #back {
 	height: 100%;
 }
@@ -120,4 +120,18 @@ body {
 	position: absolute;
 	bottom: 57%;
 	left: 25.2%;
+}
+
+
+
+/*登陆框*/
+
+.log {
+    position: absolute;
+    bottom: 10%;
+    left:55%;
+}
+
+.e {
+    display: none;
 }

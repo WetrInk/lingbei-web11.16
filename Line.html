@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Line</title>
     <link rel="stylesheet" href="css/styleOfLine.css">
+    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Raleway'>
 
     <!--引用vuejs-->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script> 
@@ -29,7 +30,7 @@
     <div class = "container-fluid">
         <div class = "row" id = "header">   
             <span class = "col-md-1" style = "padding: 0;"><img src = "pic/picOfMap/blue square.png" id = "square"></span>
-            <span class = "option col-md-5" id = "Map"><p id = "fir" style = "display: inline-block;margin: 0;">Good morning  Mr.Wang!</p><p id = "sec">what's your feeling?</p></span>
+            <span class = "option col-md-5" id = "Map"><p id = "fir" style = "display: inline-block;margin: 0;">Good &emsp;Mr.Wang!</p><p id = "sec">what's your feeling?</p></span>
         </div>
     </div>
 
@@ -38,26 +39,39 @@
         <center><a href = "Map.html"><img class = "item" src = "pic/picOfMap/home.png" id = "home"></a></center>
         <center><a href = "Line.html"><img class = "item" src = "pic/picOfMap/Line.png" id = "Line"></a></center>
         <center><a href = "Time-line.html"><img class = "item" src = "pic/picOfMap/light.png" id = "light"></a></center>
+        <center><a href = "info flow.html"><img class = "item" src = "pic/picOfMap/info.png" id = "info flow"></a></center>
 
         <!--该函数为根据页面变换菜单图标的函数-->
         <script type="text/javascript">
             window.onload = function change1() {
+                $(document).ready(function(){
+                    $("#menu").fadeIn(3000);
+                });
                 if(document.title === "Line") {
                     document.getElementById("Line").src = "pic/picOfMap/Line-v.png";
                     document.getElementById("home").src = "pic/picOfMap/home.png";
                     document.getElementById("light").src = "pic/picOfMap/light.png";
+                    document.getElementById("info flow").src = "pic/picOfMap/info.png";
                 }
                 if(document.title === "Map") {
                     document.getElementById("Line").src = "pic/picOfMap/Line.png";
                     document.getElementById("home").src = "pic/picOfMap/home-v.png";
                     document.getElementById("light").src = "pic/picOfMap/light.png";
+                    document.getElementById("info flow").src = "pic/picOfMap/info.png";
                 }
                 if(document.title === "Time-line") {
                     document.getElementById("Line").src = "pic/picOfMap/Line.png";
                     document.getElementById("home").src = "pic/picOfMap/home.png";
                     document.getElementById("light").src = "pic/picOfMap/light-v.png";
+                   document.getElementById("info flow").src = "pic/picOfMap/info.png";
                 }
-            }
+                if(document.title === "info flow") {
+                    document.getElementById("Line").src = "pic/picOfMap/Line.png";
+                    document.getElementById("home").src = "pic/picOfMap/home.png";
+                    document.getElementById("light").src = "pic/picOfMap/light.png";
+                    document.getElementById("info flow").src = "pic/picOfMap/info-v.png";
+                }
+        }
             
         </script>
 
@@ -74,7 +88,7 @@
     <!--报告浮动窗口-->
 	<center>
 		<div id = "report">
-			<button  class = "btn" data-toggle="modal" data-target="#myModal" id = "check-report">查看我的报告</button>
+			<button  class = "btn btn-primary" data-toggle="modal" data-target="#myModal" id = "check-report">查看我的报告</button>
 		</div>
 	</center>
 

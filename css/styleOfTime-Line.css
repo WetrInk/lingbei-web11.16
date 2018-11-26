@@ -1,3 +1,7 @@
+body {
+	font-family: Raleway;
+}
+
 /*顶栏CSS样式*/
 #square {
 	height: 10%;
@@ -41,7 +45,7 @@ a {
 	width: 5%;
 	height: 100%;
 	background-color: rgba(244,243,241,0.5); 
-	opacity: 1;
+	display:none;
 	z-index: 1;
 }
 
@@ -91,6 +95,7 @@ center:hover {
 	background-color: white;
 	padding-top: 3%;
 	padding-bottom: 3%;
+	opacity: 0.8;
 }
 
 .placeSty {
@@ -108,6 +113,10 @@ center:hover {
 
 .modal-content {
 	width: 150%;
+}
+
+#check-report {
+	opacity: 1;
 }
 
 /****报告样式***/
@@ -129,23 +138,19 @@ center:hover {
 }
 
 #seven {
-	bottom: 88%;
+	bottom: 83%;
 }
 
 #eleven {
-	bottom: 69%;
+	bottom: 63%;
 }
 
 #three {
-	bottom: 48%;
+	bottom: 41%;
 }
 
 #seven-p {
-	bottom: 25%;
-}
-
-#eleven-p {
-	bottom: 4%;
+	bottom: 18%;
 }
 
 .input1 {
@@ -154,17 +159,17 @@ center:hover {
 }
 
 #nine {
-	bottom: 79%;
+	bottom: 73%;
 }
 
 #one {
-	bottom: 59%;
+	bottom: 52%;
 }
 
 #five {
-	bottom: 37%;
+	bottom: 30%;
 }
 
 #nine-p {
-	bottom: 14%;
+	bottom: 7%;
 }
