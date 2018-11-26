@@ -9,6 +9,7 @@
 }
 
 #se {
+	font-size: 1.5vh;
 	height: 3%;
 	margin: 0;
 }
@@ -31,16 +32,15 @@ a {
 }
 
 #fir {
-	font-size: 2.8rem;
+	font-size: 3.5vh;
 }
 
 /******菜单********/
 #menu {
 	float: left;
 	width: 5%;
-	height: 90%;
-	background-color: rgba(244,243,241,0.5); 
-	opacity: 1;
+	height: 100%;
+	background-color: rgba(244,243,241,0.5);
 	z-index: 1;
 }
 
@@ -65,8 +65,8 @@ center:hover {
 }
 
 #background {
-	width: 100%;
-	height: 90%;
+	max-width: 100%;
+	height: 100%;
 }
 
 
@@ -84,15 +84,15 @@ center:hover {
 }
 
 #二食堂 {
-	height:13%;
-	bottom: 26%;
+	height:11%;
+	bottom: 28%;
 	left: 42%;
 }
 
 #信操 {
 	height:23%;
 	bottom: 26%;
-	left: 58.8%;
+	left: 58.5%;
 
 }
 
@@ -105,25 +105,25 @@ center:hover {
 
 #网安操场 {
 	height:23%;
-	bottom: 36.5%;
-	left: 26.5%;
+	bottom: 37%;
+	left: 26%;
 }
 
 #网安教学楼 {
 	height:10%;
-	bottom:30%;
+	bottom:28%;
 	left:33%;
 }
 
 #青楼 {
 	height:8%;
-	right: 32%;
+	right: 31%;
 	top: 72%;
 }
 
 #德仁 {
-	height:10%;
-	bottom:55%;
+	height:8%;
+	bottom:57%;
 	left: 46%;
 }
 
