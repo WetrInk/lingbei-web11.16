@@ -10,6 +10,10 @@ body {
 }
 
 /*以下为动画实现*/
+.pic {
+    position: absolute;
+}
+
 #back {
 	height: 100%;
 }
@@ -105,9 +109,8 @@ body {
     height: 100%;
 	position: absolute;
 	bottom: 3%;
-	right: 42%;
+	right: 44%;
 	-webkit-animation:myRotate 10s infinite;
-    overflow: hidden;
 }
 
 @-webkit-keyframes myRotate{
