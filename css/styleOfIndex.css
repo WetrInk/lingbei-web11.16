@@ -107,6 +107,7 @@ body {
 	bottom: 3%;
 	right: 42%;
 	-webkit-animation:myRotate 10s infinite;
+    overflow: hidden;
 }
 
 @-webkit-keyframes myRotate{
@@ -130,4 +131,11 @@ body {
     position: absolute;
     bottom: 28%;
     left:65%;
+    size: 3rem;
+}
+
+#user-icon {
+    position: absolute;;
+    left: 69.3%;
+    top: 25%;
 }
