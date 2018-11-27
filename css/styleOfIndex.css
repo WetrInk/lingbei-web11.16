@@ -126,12 +126,8 @@ body {
 
 /*登陆框*/
 
-.log {
+#log {
     position: absolute;
-    bottom: 10%;
-    left:55%;
-}
-
-.e {
-    display: none;
+    bottom: 28%;
+    left:65%;
 }
